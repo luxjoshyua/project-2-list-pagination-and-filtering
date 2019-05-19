@@ -1,0 +1,95 @@
+/**
+ * Treehouse FSJS Techdegree - Project Warm Up
+ * What's the deal with functions - CSS
+ * Developed by: Robert Manolis - Student Success Specialist
+ *               Milwaukie, OR - 2019
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+* {
+	box-sizing: border-box;
+}
+
+body,
+html {
+	width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+	text-align: center;
+}
+
+h1 {
+  color: rgba(23, 214, 81, 0.7);
+  text-shadow: 1px 1px 2px rgba(50, 50, 50, 0.9);
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  display: inline-block;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 950px;
+  height: 115px;
+  margin: 25px auto 35px;
+  padding: 10px;
+  background: rgba(50, 50, 50, 0.1);
+  border: 1px solid rgba(60, 60, 66, 0.6);
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 4px;
+  box-shadow: 1px 1px 3px rgba(12, 12, 12, 0.5) inset, -2px -2px 4px rgba(255, 255, 255, 0.7) inset;
+}
+
+.item {
+  content: "";
+  font-size: 1.5em;
+  font-weight: bold;
+  color: whitesmoke;
+  width: 175px;
+  height: 75px;
+  margin: 10px auto;
+  padding-top: 10px;
+  background: rgba(255, 255, 255, 0.999);
+  border: 1px solid rgba(57, 83, 65, 0.6);
+  border-radius: 4px;
+  box-shadow: 3px 3px 5px rgba(25, 25, 25, 0.9);
+  transition: all 0.4s;
+}
+
+.control-btn {
+  cursor: pointer;
+  outline: none;
+  color: rgba(187, 245, 205, 0.9);
+  width: 100px;
+  height: 50px;
+  background: rgba(25, 25, 25, 0.9);
+  border: 1px solid rgba(50, 50, 50, 0.9);
+  border-radius: 4px;
+  box-shadow: 3px 3px 5px rgba(50, 50, 50, 0.7), 1px 1px 2px rgba(255, 255, 255, 0.7) inset, -1px -1px 2px rgba(255, 255, 255, 0.57) inset;
+  transition: all 0.4s ease-out;
+}
+
+.control-btn:nth-child(1),
+.control-btn:nth-child(2),
+.control-btn:nth-child(3) {
+  margin-right: 125px;
+}
+
+.control-btn:hover {
+  color: rgba(44, 207, 93, 0.7);
+  box-shadow: 7px 7px 7px rgba(50, 50, 50, 0.5), 1px 1px 2px rgba(23, 214, 81, 0.9) inset, -1px -1px 2px rgba(23, 214, 81, 0.9) inset;
+}

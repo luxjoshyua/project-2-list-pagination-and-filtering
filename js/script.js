@@ -27,7 +27,8 @@ Two main tasks to this project
 // 1. select the list parameter
 
 // Global variables
-const studentList = document.querySelector('.student-item cf');
+// need document.querySelectorAll - document.querySelector only returns the first matching element!
+const studentList = document.querySelector('.student-item.cf');
 
 // select the page buttons
 // let page = 1;
@@ -76,53 +77,57 @@ const showPage = (list, page) => {
 
 
 
-
-
-
-
-
 /*
  -- the appendPageLinks function --
 
  Create the `appendPageLinks function` to generate, append, and add
 functionality to the pagination buttons.
 
- then we could use a function that creates all the pagination buttons, adds them to
- the DOM, and adds their functionality. So you would see a button with the number 1 which,
- when clicked, would show the first ten students (the first "page"). When each link is clicked,
- the showPage function displays the corresponding page (set of ten students), and highlights
- that page's link. For example, clicking the link to page 2 will display students 11
- through 20 and highlight button 2.
+ 4. <for> every page, add <li> and <a> tags with the page number text
+
+ 5. Add an event listener to each a tag. When they are clicked, call the showPage function
+ to display the appropriate page
+
+ 6. Loop over pagination links to remove active class from all links
+
+ 7. Add the active class to the link that was just clicked. You can identify that
+ clicked link using <event.target>
 */
 
-/*
+
 const appendPageLinks = (list) => {
+  /* 1. Determine how many pages are needed for the list by dividing the total number of list items
+   by the max number of items per page */
+   // this needs to be let becuause it's dynamic!
+   let totalPages = studentList.length / studentsPerPage;
+
+  // 2. Create a <div>, give it the "pagination" class, and append it to the .page div
+  const newDiv = document.createElement('div');
+  newDiv.className = 'pagination';
+  const pageDiv = document.querySelector('.page');
+  pageDiv.appendChild(newDiv);
+
+  // 3. Add a <ul> to the "pagination" div to store the pagination links
+  const appendUL = document.querySelector('ul'); ??
+  // OR DO I CREATE A NEW UL ELEMENT HERE?
+
+  newDiv.appendChild(appendUL);
+
+   // 4. <for> every page, add <li> and <a> tags with the page number text
+   // setup a for loop here
 
 
-    1. Determine how many pages are needed for the list by dividing the total number of list items
-    by the max number of items per page
-
-    2. Create a <div>, give it the "pagination" class, and append it to the .page div
-
-    3. Add a <ul> to the "pagination" div to store the pagination links
-
-    4. <for> every page, add <li> and <a> tags with the page number text
-
-    5. Add an event listener to each a tag. When they are clicked, call the showPage function
-    to display the appropriate page
-
-    6. Loop over pagination links to remove active class from all links
-
-    7. Add the active class to the link that was just clicked. You can identify that
-    clicked link using <event.target>
 
 
 }
-*/
+
 
 
 // call showPage function
-// showPage(studentList);
+// showPage(studentList, 1);
+
+// call appendPageLinks function
+// appendPageLinks(studentList);
 
 
 
