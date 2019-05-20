@@ -63,7 +63,6 @@ const showPage = (list, page) => {
   // start at 0, find 0 to 10 list students
   const firstItem = (page * studentsPerPage) - studentsPerPage;
   const lastItem = page * studentsPerPage - 1;
-
   // loop over the list parameter so we can show 10 students per page
   for (let i = 0; i < list.length; i++) {
     // i is now the first list item on the page
@@ -74,8 +73,6 @@ const showPage = (list, page) => {
     }
   }
 };
-
-
 
 /*
  -- the appendPageLinks function --
@@ -100,27 +97,19 @@ const appendPageLinks = (list) => {
    by the max number of items per page */
    // this needs to be let becuause it's dynamic!
    let totalPages = studentList.length / studentsPerPage;
-
   // 2. Create a <div>, give it the "pagination" class, and append it to the .page div
   const newDiv = document.createElement('div');
   newDiv.className = 'pagination';
   const pageDiv = document.querySelector('.page');
   pageDiv.appendChild(newDiv);
-
   // 3. Add a <ul> to the "pagination" div to store the pagination links
   const appendUL = document.querySelector('ul'); ??
   // OR DO I CREATE A NEW UL ELEMENT HERE?
-
   newDiv.appendChild(appendUL);
-
    // 4. <for> every page, add <li> and <a> tags with the page number text
    // setup a for loop here
-
-
-
-
+   for ()
 }
-
 
 
 // call showPage function

@@ -1,1 +1,3 @@
-# project-2-list-pagination-and-filtering
+# Team Treehouse Project 2: List Pagination and Filtering
+
+
