@@ -69,11 +69,6 @@ function contentElement3(element) {
 }
 
 // 4. Create a function to set the content of the fourth element — the function should have a single parameter called `array`
-// 4a. Set the `element4` variable's `style.color` property equal to green, or your favorite color
-// 4b. Create a variable to store what will be printed and set it equal to an empty string, `''`
-// 4c. Loop over the `array` parameter
-// 4cc. Concatenate `array[i]` to the printed variable created above for each iteration
-// 4d. Set the `innerHTML` of `element4` variable equal to the printed variable created above
 function contentElement4(array) {
   // 4a. Set the `element4` variable's `style.color` property equal to green, or your favorite color
   const el4 = document.querySelectorAll('.item')[3];
@@ -83,12 +78,11 @@ function contentElement4(array) {
   // 4c. Loop over the `array` parameter
   for (let i = 0; i < value4.length; i++ ) {
     // 4cc. Concatenate `array[i]` to the printed variable created above for each iteration
-    myArray += ' ,' + value4[i]; 
+    myArray += ' ,' + value4[i];
   }
   // 4d. Set the `innerHTML` of `element4` variable equal to the printed variable created above
   el4.innerHTML = myArray;
 }
-
 
 // 5. Call each function you've created in the associated event listeners below, using the `value` variables above as the argumets
 
