@@ -5,21 +5,20 @@ FSJS project 2 - List Filter and Pagination
 ******************************************/
 "use strict";
 
-// 1. select the list parameter
+/* -- Part One: Global variables -- */
 
-// Global variables
-// need document.querySelectorAll - document.querySelector only returns the first matching element!
+// 1. select the list parameter
 const studentList = document.querySelectorAll('.student-item.cf');
 
 // show ten students per page
 const studentsPerPage = 10;
 
 /*
--- the showPage function --
- */
+-- Part Two: the showPage Function --
+*/
 
 const showPage = (list, page) => {
-  console.log(page);
+  // console.log(page); check it's working
   const listLength = list.length;
   // start at 0, find 0 to 10 list students
   const firstItem = (page * studentsPerPage) - studentsPerPage;
@@ -36,9 +35,9 @@ const showPage = (list, page) => {
 };
 
 /*
- -- the appendPageLinks function --
+ -- Part Three: The appendPageLinks Function --
 */
-
+// setup appendPageLinks function, takes full student list as its argument
 const appendPageLinks = (studentList) => {
   /* 1. Determine how many pages are needed for the list by dividing the total number of list items
    by the max number of items per page */
@@ -54,9 +53,8 @@ const appendPageLinks = (studentList) => {
   // 3. Add a <ul> to the "pagination" div to store the pagination links
   const newUL = document.createElement('ul');
   newDiv.appendChild(newUL);
-  console.log(totalPages);
-
-  console.log('Click event is functional!');
+  // check it's working up to this point!
+  // console.log(totalPages);
 
   // 4. <for> every page, add <li> and <a> tags with the page number text
   for (let i = 0; i < totalPages; i++) {
@@ -65,44 +63,47 @@ const appendPageLinks = (studentList) => {
     // create a
     const aTag = document.createElement('a');
 
-    /* 5. Add an event listener to each a tag.
-    When they are clicked, call the showPage function
-    to display the appropriate page */
+    // 5. Add an event listener to each a tag. When they are clicked, call the showPage function to display the appropriate page */
     aTag.addEventListener('click', (event) => {
-      const listA = document.querySelectorAll(' .pagination a');
+      // select every ahref that is a child of a div with pagination class
+      const listA = document.querySelectorAll('.pagination a');
+      // 6. Loop over pagination links to remove active class from all links
       for (let i = 0; i < listA.length; i++) {
-          listA[i].classList.remove('active');
-      //   aTag.classList.remove('active');
+        listA[i].classList.remove('active');
       }
+      // 7. Add the active class to the link that was just clicked.
       aTag.classList.add('active');
-      showPage(studentList, i+1); // [i];
+      showPage(studentList, i + 1);
     });
 
-
-    // 6. Loop over pagination links to remove active class from all links
-    // for (let i = 0; i < newDiv.length; i++) {
-    //   // newDiv.classList.remove('active');
-    //   aTag.classList.remove('active');
-    // }
-    //
-    // // 7. Add the active class to the link that was just clicked. You can identify that
-    // // clicked link using <event.target>
-    // const clickedPaginationLink = event.target;
-    // clickedPaginationLink.classList.add('active');
     aTag.textContent = i + 1;
     li.appendChild(aTag);
     newUL.appendChild(li);
   }
+};
 
-  // this needs to be accessible by the const newUL
-  // the a tag needs the text content of i + 1
-
-}
-
+/* -- Part Four: Call the Functions! */
 // call showPage function
 showPage(studentList, 1);
 
 // call appendPageLinks function
 appendPageLinks(studentList);
 
-// Remember to delete the comments that came with this file, and replace them with your own code comments.
+
+/* -- Part Five: Setup Search Functionality -- */
+// select the header
+
+// create search element div
+
+// create input element
+// give input element placeholder text
+
+//create search button element
+// give search button text content
+
+// append each child node to parent nodes, header is the ultimate parent node
+
+
+
+
+/* -- Part Six: Setup Search Function -- */
