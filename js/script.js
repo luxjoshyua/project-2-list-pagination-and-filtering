@@ -85,43 +85,53 @@ const appendPageLinks = (studentList) => {
 /* -- Part Four: Call the Functions! */
 // call showPage function
 showPage(studentList, 1);
-
 // call appendPageLinks function
 appendPageLinks(studentList);
 
 
+/* -- Part Five: Search Functionality -- */
+function searchTool() {
+  // select the header
+  // const searchBarContainer = document.getElementsByClassName('page-header');
+  const searchParent = document.querySelector('.page-header');
+  searchParent.style.backgroundColor = 'red'; 
+
+  // create search element div
+  const searchDiv = document.createElement('div');
+  // searchDiv.className += 'student-search'; 
+  // append the searchDiv to the searchBarContainer parent
+  searchParent.appendChild(searchDiv);
+
+  // create input element
+  const input = document.createElement('input');
+  // set the input type to 'search'
+  input.type = 'search';
+  // input.className = 'student-search'; 
+  // append the input to the searchDiv
+  searchDiv.appendChild(input);
+  filter = input.value.toUpperCase();
+
+  // create search button element
+  // give search button text content
+  // Unsure if I need this?
+  /* const searchBtn = document.createElement('button');
+  searchBtn.textContent = 'search here';
+  searchDiv.appendChild(searchBtn); */
+
+  const student = document.getElementsByTagName('h3');
+
+  for (i = 0; i < studentList.length; i++) {
+    // j = studentList[i].getElementsByTagName('h3')[0];
+    j = studentList[i].student[0];
+    txt = j.textContent || j.innerText;
+    if (txt.toUpperCase().indexOf(filter) > -1) {
+      student[i].style.display = '';
+    } else {
+      student[i].style.display = '';
+    }
+  }
+};
 
 
-/* -- Part Five: Setup Search Functionality -- */
-// select the header
-const headerContainer = document.getElementsByClassName('page-header')[0];
-
-// create search element div
-const searchDiv = document.createElement("div");
-searchDiv.className += 'student-search'; 
-headerDiv.appendChild(searchDiv);
-
-
-// create input element
-const input = document.createElement('input');
-input.type = 'search';
-input.className = 'student-search'; 
-searchDiv.appendChild(input);
-
-// create search button element
-// give search button text content
-const searchBtn = document.createElement('button');
-searchBtn.textContent = 'search here';
-
-
-// append each child node to parent nodes, header is the ultimate parent node
-
-
-
-
-/* -- Part Six: Setup Search Function -- */
-
-
-// setup if else statement
 
 // after search, clear input with searchInput.value = ''; 
