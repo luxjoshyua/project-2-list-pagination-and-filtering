@@ -90,16 +90,29 @@ showPage(studentList, 1);
 appendPageLinks(studentList);
 
 
+
+
 /* -- Part Five: Setup Search Functionality -- */
 // select the header
+const headerContainer = document.getElementsByClassName('page-header')[0];
 
 // create search element div
+const searchDiv = document.createElement("div");
+searchDiv.className += 'student-search'; 
+headerDiv.appendChild(searchDiv);
+
 
 // create input element
-// give input element placeholder text
+const input = document.createElement('input');
+input.type = 'search';
+input.className = 'student-search'; 
+searchDiv.appendChild(input);
 
-//create search button element
+// create search button element
 // give search button text content
+const searchBtn = document.createElement('button');
+searchBtn.textContent = 'search here';
+
 
 // append each child node to parent nodes, header is the ultimate parent node
 
@@ -107,3 +120,8 @@ appendPageLinks(studentList);
 
 
 /* -- Part Six: Setup Search Function -- */
+
+
+// setup if else statement
+
+// after search, clear input with searchInput.value = ''; 
