@@ -94,13 +94,13 @@ function searchTool() {
   // select the header
   // const searchBarContainer = document.getElementsByClassName('page-header');
   const searchParent = document.querySelector('.page-header');
-  searchParent.style.backgroundColor = 'red'; 
-
+  
   // create search element div
   const searchDiv = document.createElement('div');
   // searchDiv.className += 'student-search'; 
   // append the searchDiv to the searchBarContainer parent
   searchParent.appendChild(searchDiv);
+  searchDiv.classList.add('student-search'); 
 
   // create input element
   const input = document.createElement('input');
@@ -109,29 +109,47 @@ function searchTool() {
   // input.className = 'student-search'; 
   // append the input to the searchDiv
   searchDiv.appendChild(input);
-  filter = input.value.toUpperCase();
 
-  // create search button element
-  // give search button text content
-  // Unsure if I need this?
-  /* const searchBtn = document.createElement('button');
-  searchBtn.textContent = 'search here';
-  searchDiv.appendChild(searchBtn); */
+  // make search input work when user hits enter 
+  // search triggers on enter and the cross 
+  input.addEventListener('search', function(e) {
+      search(input); 
+    // if (event.keyCode === 13) {
+    
+    // } 
+  }); 
 
-  const student = document.getElementsByTagName('h3');
 
-  for (i = 0; i < studentList.length; i++) {
-    // j = studentList[i].getElementsByTagName('h3')[0];
-    j = studentList[i].student[0];
-    txt = j.textContent || j.innerText;
-    if (txt.toUpperCase().indexOf(filter) > -1) {
-      student[i].style.display = '';
-    } else {
-      student[i].style.display = '';
-    }
-  }
+  input.addEventListener('search', function(e) {
+    console.log(e); 
+  })
+
+
+
+  
+  const searchBtn = document.createElement('button');
+  searchBtn.textContent = 'Search';
+  // addEventListener always has a type and a function with a parameter
+  searchBtn.addEventListener('click', function(e) {
+      search(input); 
+  });
+  searchDiv.appendChild(searchBtn);
 };
 
 
+// use e because want to get the value of the event
+function search(el) {
+  // e.target instead of input because in new function
+  const filter = el.value.toUpperCase();
 
+  for (let i = 0; i < studentList.length; i++) {
+    const student = studentList[i].getElementsByTagName('h3')[0].innerText.toUpperCase();
+    if (student.includes(filter)) {
+      studentList[i].style.display = 'block'; 
+    } else {
+      studentList[i].style.display = 'none'; 
+    }
+  }
+}; 
+searchTool(); 
 // after search, clear input with searchInput.value = ''; 
