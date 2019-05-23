@@ -3,6 +3,10 @@
 Treehouse Techdegree:
 FSJS project 2 - List Filter and Pagination
 ******************************************/
+
+// TODO: add a text transition on click - check with G for specifics
+
+
 "use strict";
 
 /* -- Part One: Global variables -- */
@@ -53,8 +57,6 @@ const appendPageLinks = (studentList) => {
   // 3. Add a <ul> to the "pagination" div to store the pagination links
   const newUL = document.createElement('ul');
   newDiv.appendChild(newUL);
-  // check it's working up to this point!
-  // console.log(totalPages);
 
   // 4. <for> every page, add <li> and <a> tags with the page number text
   for (let i = 0; i < totalPages; i++) {
@@ -92,56 +94,43 @@ appendPageLinks(studentList);
 /* -- Part Five: Search Functionality -- */
 function searchTool() {
   // select the header
-  // const searchBarContainer = document.getElementsByClassName('page-header');
   const searchParent = document.querySelector('.page-header');
   
   // create search element div
   const searchDiv = document.createElement('div');
-  // searchDiv.className += 'student-search'; 
   // append the searchDiv to the searchBarContainer parent
   searchParent.appendChild(searchDiv);
+  // add .student-search class to the searchDiv
   searchDiv.classList.add('student-search'); 
 
   // create input element
   const input = document.createElement('input');
   // set the input type to 'search'
   input.type = 'search';
-  // input.className = 'student-search'; 
   // append the input to the searchDiv
   searchDiv.appendChild(input);
 
   // make search input work when user hits enter 
-  // search triggers on enter and the cross 
   input.addEventListener('search', function(e) {
       search(input); 
-    // if (event.keyCode === 13) {
-    
-    // } 
   }); 
 
-
-  input.addEventListener('search', function(e) {
-    console.log(e); 
-  })
-
-
-
-  
+  // create search button user clicks to search
   const searchBtn = document.createElement('button');
+  // set the button's text content to search
   searchBtn.textContent = 'Search';
   // addEventListener always has a type and a function with a parameter
   searchBtn.addEventListener('click', function(e) {
       search(input); 
   });
+  // append the search button the search div
   searchDiv.appendChild(searchBtn);
 };
-
 
 // use e because want to get the value of the event
 function search(el) {
   // e.target instead of input because in new function
   const filter = el.value.toUpperCase();
-
   for (let i = 0; i < studentList.length; i++) {
     const student = studentList[i].getElementsByTagName('h3')[0].innerText.toUpperCase();
     if (student.includes(filter)) {
@@ -152,4 +141,3 @@ function search(el) {
   }
 }; 
 searchTool(); 
-// after search, clear input with searchInput.value = ''; 
