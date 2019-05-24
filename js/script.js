@@ -4,9 +4,6 @@ Treehouse Techdegree:
 FSJS project 2 - List Filter and Pagination
 ******************************************/
 
-// TODO: add a text transition on click - check with G for specifics
-
-
 "use strict";
 
 /* -- Part One: Global variables -- */
@@ -62,7 +59,7 @@ const appendPageLinks = (studentList) => {
   for (let i = 0; i < totalPages; i++) {
     // create li
     const li = document.createElement('li');
-    // create a
+    // create a tag
     const aTag = document.createElement('a');
 
     // 5. Add an event listener to each a tag. When they are clicked, call the showPage function to display the appropriate page */
@@ -90,26 +87,22 @@ showPage(studentList, 1);
 // call appendPageLinks function
 appendPageLinks(studentList);
 
-
 /* -- Part Five: Search Functionality -- */
 function searchTool() {
   // select the header
   const searchParent = document.querySelector('.page-header');
-  
   // create search element div
   const searchDiv = document.createElement('div');
   // append the searchDiv to the searchBarContainer parent
   searchParent.appendChild(searchDiv);
   // add .student-search class to the searchDiv
   searchDiv.classList.add('student-search'); 
-
   // create input element
   const input = document.createElement('input');
   // set the input type to 'search'
   input.type = 'search';
   // append the input to the searchDiv
   searchDiv.appendChild(input);
-
   // make search input work when user hits enter 
   input.addEventListener('search', function(e) {
       search(input); 
@@ -139,5 +132,5 @@ function search(el) {
       studentList[i].style.display = 'none'; 
     }
   }
-}; 
+};
 searchTool(); 
