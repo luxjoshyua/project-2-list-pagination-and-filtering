@@ -13,6 +13,7 @@ const studentList = document.querySelectorAll('.student-item.cf');
 
 // show ten students per page
 const studentsPerPage = 10;
+// const studentsPerPage = 20; 
 
 /*
 -- Part Two: the showPage Function --
